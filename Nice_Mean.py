@@ -1,16 +1,11 @@
 
-
-
-
 import colorama
 from colorama import Fore, Style
-
 
 def start(nice=0,mean=0,name=""):
     # get user's name
     name = describe_game(name)
     nice,mean,name = nice_mean(nice,mean,name)
-
 
 def describe_game(name):
     """
@@ -35,27 +30,24 @@ def describe_game(name):
                     stop = False
     return name
 
-
 def nice_mean(nice,mean,name):
     stop = True
     while stop:
         show_score(nice,mean,name)
-        pick = input("\nA stranger approaches you for a \nconversation. Will you be nice \nor mean? (N\M) \n>>>: ").lower()
+        pick = input("\nA stranger approaches you for a \nconversation. Will you be nice \nor mean? (N/M) \n>>>: ").lower()
         if pick == "n":
             print("\nThe strangger walks away smiling...")
             nice = (nice + 1)
             stop = False
         if pick == "m":
-            print(Fore.RED + "\nThe sranger glares at you \nmenacingly and stormes off...")
+            print(Fore.BLUE + "\nThe sranger glares at you \nmenacingly and stormes off...")
             mean = (mean + 1)
             stop = False
     score(nice,mean,name) # pass the 3 variables to the score()
 
-
 def show_score(nice,mean,name):
     print ("\n{}, your current total: \n({}, Nice) and ({}, Mean)".format(name,nice,mean))
     
-
 def score(nice,mean,name):
     # score function is being passed the values stored withint the 3 variables
     if nice > 2: # if condition is vaild, call win functuion passing in the variables so it can use them
@@ -65,15 +57,11 @@ def score(nice,mean,name):
     else:        # else, call nice_mean function passing in eht variables so it can use them
         nice_mean(nice,mean,name)
 
-
-
 def win(nice,mean,name):
     # Substitute the {} wildcards with out varibales values
     print("\nNice job {}, you win! \nEveryone loves you and you've \nmade lots of friends along the way!".format(name))
     #call again function and pas in our variables
     again(nice,mean,name)
-
-
 
 def lose(nice,mean,name):
     # Substitute the {} wildcards with our variable values
@@ -81,35 +69,25 @@ def lose(nice,mean,name):
     # call again funciton and pass in our variables
     again(nice,mean,name)
     
-
-    
-
 def again(nice,mean,name):
     stop = True
     while stop:
         choice = input("\nDo you want to play again? (y/n):\n>>> ").lower()
-    if choice == "y":
-        stop = False
-        reset(nice,mean,name)
-    if choice == "n":
-        print("\nOh, so sad, sorry to see you go!")
-        stop = False
-        quit()
-    else:
-        print("\nEnter ( Y ) for 'YES', ( N ) for 'NO':\n>>> ")
-
-        
-
+        if choice == "y":
+            stop = False
+            reset(nice,mean,name)
+        if choice == "n":
+            print("\nOh, so sad, sorry to see you go!")
+            stop = False
+            quit()
+        else:
+            print("\nEnter ( Y ) for 'YES', ( N ) for 'NO':\n>>> ")
 
 def reset(nice,mean,name):
     nice = 0
     mean = 0
-    #Notice, I do not reset the name variables as the samw user has elected to play again
+    #Notice, I do not reset the name variables as the sames user has elected to play again
     start(nice,mean,name)
-
-
-
-    
 
 if __name__ == "__main__":
     start()
