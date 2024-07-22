@@ -4,13 +4,10 @@ These are basic projects written in Python. They use various modules such as tki
 
 ## Projects:
 
-- [Phonebook](#phonebook)
-- [Check Files Gui](#check-files-gui)
+- [Django Checkbook](#django-checkbook)
 
-### Phonebook
+### Django Checkbook
 
-This project functions as a phone book for a user. It saves a contact's name, phone number, and email address in a database and allows the user to update and delete previously stored entries.
+The Django Checkbook project is a web application that allows users to manage their personal finances. Users can add, update, and delete transactions, as well as categorize expenses and track their account balances.
 
-### Check Files Gui
 
-This project allows the user to choose to transfer all .txt files from one chosen directory to another. All files that are moved will be saved in a database.
