@@ -1,13 +1,14 @@
-from django.forms import ModelForm
+from django import forms
+from django.forms import ModelForm, Form
 from .models import Account, Transaction
 
-# Creates Account From based on Account Model
+
 class AccountForm(ModelForm):
     class Meta:
         model = Account
         fields = '__all__'
 
-# Creates Transaction Form based on Transaction Model
+
 class TransactionForm(ModelForm):
     class Meta:
         model = Transaction
